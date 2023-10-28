@@ -4,7 +4,6 @@ import TransactionForm from './components.js/TransactionForm';
 import SearchBar from './components.js/SearchBar';
 import './index.css';
 
-
 const App = () => {
   const [transactions, setTransactions] = useState([]);
   const [filteredTransactions, setFilteredTransactions] = useState([]);
