@@ -1,5 +1,5 @@
 import React from 'react';
-
+function SearchBar(){
 const SearchBar = ({ onSearch }) => {
   const handleChange = (e) => {
     const searchTerm = e.target.value;
@@ -17,5 +17,6 @@ const SearchBar = ({ onSearch }) => {
     </div>
   );
 };
+}
 
 export default SearchBar;

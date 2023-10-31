@@ -1,9 +1,25 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 
 const TransactionTable = ({ transactions, onDeleteTransaction }) => {
+  // State to manage the search query
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Filter the transactions based on the search query
+  const filteredTransactions = transactions.filter((transaction) =>
+    transaction.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div>
-      <h2>You're Transactions</h2>
+      <h2>Your Transactions</h2>
+      {/* Search input */}
+      <input
+        type="text"
+        placeholder="Search transactions"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
       <table>
         <thead>
           <tr>
@@ -11,11 +27,11 @@ const TransactionTable = ({ transactions, onDeleteTransaction }) => {
             <th>Description</th>
             <th>Category</th>
             <th>Amount</th>
-            <th>Delete</th> {/* Add a new column for delete buttons */}
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          {transactions.map((transaction) => (
+          {filteredTransactions.map((transaction) => (
             <tr key={transaction.id}>
               <td>{transaction.date}</td>
               <td>{transaction.description}</td>
