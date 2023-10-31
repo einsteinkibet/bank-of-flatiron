@@ -1,5 +1,4 @@
 import React from 'react';
-// display tables
 
 const TransactionTable = ({ transactions, onDeleteTransaction }) => {
   return (
